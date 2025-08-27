@@ -44,6 +44,16 @@ class TestCourse(unittest.TestCase):
         actual = str(context.exception)
         self.assertEqual(expected, actual)
 
+    def test_init_invalid_name_raises_exception(self) -> None:
+        # Arrange
+        name = ""
+        department = Department.COMPUTER_SCIENCE
+        credit_hours = 6
+
+        # Act
+        with self.assertRaises(ValueError):
+            Course(name, department, credit_hours)
+
     def test_init_raise_valueerror_invalid_department(self) -> None:
         # Arrange
         name = "ISD"
@@ -70,7 +80,7 @@ class TestCourse(unittest.TestCase):
             Course(name, department, credit_hours)
 
         # Assert
-        expected = "Credit hours must be numberic."
+        expected = "Credit hours must be numeric."
         actual = str(context.exception)
         self.assertEqual(expected, actual)
 
@@ -133,3 +143,6 @@ class TestCourse(unittest.TestCase):
         )
         actual = course.__str__()
         self.assertEqual(expected, actual)
+
+    def setUp(self) -> None:
+        self.course = Course("ISD", Department.COMPUTER_SCIENCE, 6)

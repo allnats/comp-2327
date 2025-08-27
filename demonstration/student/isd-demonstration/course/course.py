@@ -24,7 +24,7 @@ class Course:
             raise ValueError("Department is invalid.")
 
         if not isinstance(credit_hours, int):
-            raise ValueError("Credit hours must be numberic.")
+            raise ValueError("Credit hours must be numeric.")
 
         # Name mangling _ClassName.__name
         self.__name = name
