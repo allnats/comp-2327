@@ -15,7 +15,7 @@ from course.course import Course
 
 
 class TestCourse(unittest.TestCase):
-    def test_init_valid(self):
+    def test_init_valid(self) -> None:
         # Arrange
         name = "ISD"
         department = Department.COMPUTER_SCIENCE
@@ -26,3 +26,110 @@ class TestCourse(unittest.TestCase):
 
         # Assert
         self.assertEqual(name, course._Course__name)
+        self.assertEqual(department, course._Course__department)
+        self.assertEqual(credit_hours, course.credit_hours)
+
+    def test_init_raise_valueerror_blank_name(self) -> None:
+        # Arrange
+        name = ""
+        department = Department.COMPUTER_SCIENCE
+        credit_hours = 6
+
+        # Act
+        with self.assertRaises(ValueError) as context:
+            Course(name, department, credit_hours)
+
+        # Assert
+        expected = "Name connot be blank."
+        actual = str(context.exception)
+        self.assertEqual(expected, actual)
+
+    def test_init_raise_valueerror_invalid_department(self) -> None:
+        # Arrange
+        name = "ISD"
+        department = "PHARMACY"
+        credit_hours = 6
+
+        # Act
+        with self.assertRaises(ValueError) as context:
+            Course(name, department, credit_hours)
+
+        # Assert
+        expected = "Department is invalid."
+        actual = str(context.exception)
+        self.assertEqual(expected, actual)
+
+    def test_init_raise_valueerror_nonnumeric_credit_hours(self) -> None:
+        # Arrange
+        name = "ISD"
+        department = Department.COMPUTER_SCIENCE
+        credit_hours = "6"
+
+        # Act
+        with self.assertRaises(ValueError) as context:
+            Course(name, department, credit_hours)
+
+        # Assert
+        expected = "Credit hours must be numberic."
+        actual = str(context.exception)
+        self.assertEqual(expected, actual)
+
+    def test_name_returns_current_state(self) -> None:
+        # Arrange
+        name = "ISD"
+        department = Department.COMPUTER_SCIENCE
+        credit_hours = 6
+
+        # Act
+        course = Course(name, department, credit_hours)
+
+        # Assert
+        expected = name
+        actual = course._Course__name
+        self.assertEqual(expected, actual)
+
+    def test_department_returns_current_state(self) -> None:
+        # Arrange
+        name = "ISD"
+        department = Department.COMPUTER_SCIENCE
+        credit_hours = 6
+
+        # Act
+        course = Course(name, department, credit_hours)
+
+        # Assert
+        expected = department
+        actual = course._Course__department
+        self.assertEqual(expected, actual)
+
+    def test_credit_hours_returns_current_state(self) -> None:
+        # Arrange
+        name = "ISD"
+        department = Department.COMPUTER_SCIENCE
+        credit_hours = 6
+
+        # Act
+        course = Course(name, department, credit_hours)
+
+        # Assert
+        expected = credit_hours
+        actual = course._Course__credit_hours
+        self.assertEqual(expected, actual)
+
+    def test_str_prints_valid_sting_representation(self) -> None:
+        # Arrange
+        name = "ISD"
+        department = Department.COMPUTER_SCIENCE
+        credit_hours = 6
+
+        # Act
+        course = Course(name, department, credit_hours)
+
+        # Assert
+        expected = (
+            f"Course: {name}\n"
+            "Department: Computer Science\n"
+            f"Credit Hours: {credit_hours}"
+        )
+        actual = course.__str__()
+        self.assertEqual(expected, actual)
