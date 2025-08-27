@@ -44,7 +44,7 @@ class Course:
         return self.__credit_hours
 
     def __str__(self) -> str:
-        department_titlecase = self.__department.replace("-", " ").title()
+        department_titlecase = self.__department.name.replace("_", " ").title()
         return (f"Course: {self.__name}\n"
-                f"Department: {self.__deparment}\n"
+                f"Department: {department_titlecase}\n"
                 f"Credit Hours: {self.__credit_hours}")
