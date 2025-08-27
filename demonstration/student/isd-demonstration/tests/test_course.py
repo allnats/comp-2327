@@ -15,6 +15,9 @@ from course.course import Course
 
 
 class TestCourse(unittest.TestCase):
+    def setUp(self) -> None:
+        self.course = Course("ISD", Department.COMPUTER_SCIENCE, 6)
+
     def test_init_valid(self) -> None:
         # Arrange
         name = "ISD"
@@ -85,45 +88,21 @@ class TestCourse(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_name_returns_current_state(self) -> None:
-        # Arrange
-        name = "ISD"
-        department = Department.COMPUTER_SCIENCE
-        credit_hours = 6
-
-        # Act
-        course = Course(name, department, credit_hours)
-
-        # Assert
-        expected = name
-        actual = course._Course__name
+        # Act & Assert
+        expected = "ISD"
+        actual = self.course.name
         self.assertEqual(expected, actual)
 
     def test_department_returns_current_state(self) -> None:
-        # Arrange
-        name = "ISD"
-        department = Department.COMPUTER_SCIENCE
-        credit_hours = 6
-
-        # Act
-        course = Course(name, department, credit_hours)
-
-        # Assert
-        expected = department
-        actual = course._Course__department
+        # Act & Assert
+        expected = Department.COMPUTER_SCIENCE
+        actual = self.course.department
         self.assertEqual(expected, actual)
 
     def test_credit_hours_returns_current_state(self) -> None:
-        # Arrange
-        name = "ISD"
-        department = Department.COMPUTER_SCIENCE
-        credit_hours = 6
-
-        # Act
-        course = Course(name, department, credit_hours)
-
-        # Assert
-        expected = credit_hours
-        actual = course._Course__credit_hours
+        # Act & Assert
+        expected = 6
+        actual = self.course.credit_hours
         self.assertEqual(expected, actual)
 
     def test_str_prints_valid_sting_representation(self) -> None:
@@ -131,18 +110,16 @@ class TestCourse(unittest.TestCase):
         name = "ISD"
         department = Department.COMPUTER_SCIENCE
         credit_hours = 6
-
-        # Act
-        course = Course(name, department, credit_hours)
-
-        # Assert
         expected = (
             f"Course: {name}\n"
             "Department: Computer Science\n"
             f"Credit Hours: {credit_hours}"
         )
+
+        # Act
+        course = Course(name, department, credit_hours)
+
+        # Assert
         actual = course.__str__()
         self.assertEqual(expected, actual)
 
-    def setUp(self) -> None:
-        self.course = Course("ISD", Department.COMPUTER_SCIENCE, 6)
