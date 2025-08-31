@@ -19,3 +19,7 @@ __pycache__/
 # Installer
   - *.whl
   - *.tar.gz
+
+
+# xlsx lock file
+.*lock*.xlsx
