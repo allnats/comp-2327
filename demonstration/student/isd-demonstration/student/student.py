@@ -6,9 +6,8 @@ import random
 from department.department import Department
 
 class Student:
-    """
-    Student class.  Represents a student in a school.
-    """
+    """Student class.  Represents a student in a school."""
+
     def __init__(self, student_number: int, name: str, department: Department):
         """
         Initializes a course object based on received arguments (if valid).
@@ -35,12 +34,12 @@ class Student:
             raise ValueError("Department must be one of the predefined Departments.")
 
         self.__grade_point_average = random.uniform(0, 4.5)
-        
+
     @property
     def student_number(self) -> int:
         """
         Accessor for the student_number attribute.
-        Returns: 
+        Returns:
             int: The unique id associated with the Student instance.
         """
         return self.__student_number
@@ -49,7 +48,7 @@ class Student:
     def name(self) -> str:
         """
         Accessor for the name attribute.
-        Returns: 
+        Returns:
             str: The name of the Student instance.
         """
         return self.__name
@@ -58,25 +57,25 @@ class Student:
     def department(self) -> Department:
         """
         Accessor for the department attribute.
-        Returns: 
+        Returns:
             Department: A specific Department enum value associated with the Student instance.
         """
         return self.__department
-    
+
     @property
     def grade_point_average(self) -> float:
         """
         Accessor for the grade point average attribute.
-        Returns: 
+        Returns:
             float: The grade point average value associated with the Student instance.
         """
         return self.__grade_point_average
-    
-    
+
+
     def __str__(self) ->str:
         """
         Returns a string representation of the Student instance.
-        Returns: 
+        Returns:
             str: The Student instance as a formatted string.
         """
         # Note: For departments containing more than one word
