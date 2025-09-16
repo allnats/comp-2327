@@ -60,6 +60,20 @@ class Course(ABC):
     def credit_hours(self) -> int:
         return self.__credit_hours
 
+    @abstractmethod
+    def enroll_student(self, student: Student) -> str:
+        """Enroll a student in a course if capacity allows.
+
+        Args:
+            student (Student): The student to be enrolled.
+
+        Returns:
+            str: String message indicating success or failure
+                of enrollment.
+
+        """
+        pass
+
     def __str__(self) -> str:
         department_titlecase = self.__department.name.replace("_", " ").title()
         return (f"Course: {self.__name}\n"
