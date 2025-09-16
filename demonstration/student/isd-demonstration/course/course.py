@@ -35,7 +35,7 @@ class Course(ABC):
             raise ValueError("Capacity must be numeric.")
 
         if not isinstance(current_enrollment, int):
-            raise ValueError("Capacity must be numeric.")
+            raise ValueError("Current enrollment must be numeric.")
 
 
         # Name mangling _ClassName.__name
