@@ -34,6 +34,6 @@ class LabCourse(Course):
 
     def __str__(self) -> str:
         return (
-            super().__str__(),
+            super().__str__() +
             f"\nRequired Equipment: ${self.__lab_equipment}"
         )

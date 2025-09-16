@@ -34,7 +34,7 @@ class LectureCourse(Course):
 
     def __str__(self) -> str:
         return (
-            super().__str__(),
-            "\n",
+            super().__str__() +
+            "\n" +
             f"Lecture Hall: {self.__lecture_hall}"
         )
