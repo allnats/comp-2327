@@ -28,7 +28,7 @@ class LectureCourse(Course):
             self._current_enrollment += 1
             message += f" has been successfully enrolled in {self.name}"
         else:
-            message += (" has NOT BEEN ENROLLED IN LECTURE: ",
+            message += (" has NOT BEEN ENROLLED IN LECTURE: " +
                         f"{self.name} due to insufficient capacity.")
         return message;
 

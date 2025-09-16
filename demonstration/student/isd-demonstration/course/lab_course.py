@@ -27,13 +27,13 @@ class LabCourse(Course):
         message = f"{student.name}"
         if self._current_enrollment < (self._capacity / 2):
             self._current_enrollment += 1
-            message += f" has been successfully enrolled"
+            message += " has been successfully enrolled"
         else:
-            message += (f" HAS NOT BEEN ENROLLED IN LAB: {self.name}",
+            message += (f" HAS NOT BEEN ENROLLED IN LAB: {self.name}" +
                         "due to insufficient capacity.")
-
+        return message
     def __str__(self) -> str:
         return (
             super().__str__() +
-            f"\nRequired Equipment: ${self.__lab_equipment}"
+            f"\nRequired Equipment: {self.__lab_equipment}"
         )
