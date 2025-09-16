@@ -12,4 +12,8 @@ Allendale Nato
 
 Module 1 - Object-Oriented Programming (OOP) and Unit Testing
 
-## Demonstration
+## Module 02
+
+Module 2 - Encapsulation, Abstraction, Inheritance, and Polymorphism
+
+# Demonstration
