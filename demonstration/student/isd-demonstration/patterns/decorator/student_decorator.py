@@ -14,4 +14,4 @@ class StudentDecorator(StudentDecoratable):
 
     @property
     def grade_point_average(self) -> float:
-        return self.grade_point_average
+        return self.__student.grade_point_average

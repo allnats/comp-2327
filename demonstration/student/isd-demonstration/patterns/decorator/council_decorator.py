@@ -5,6 +5,7 @@ from patterns.decorator.student_decorator import StudentDecorator
 
 class CouncilDecorator(StudentDecorator):
 
+    @property
     def grade_point_average(self) -> float:
         gpa = super().grade_point_average
 
