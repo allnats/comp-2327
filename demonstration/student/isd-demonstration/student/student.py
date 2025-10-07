@@ -5,11 +5,12 @@ __credits__ = ""
 import random
 from department.department import Department
 from patterns.singleton.singleton_student_manager import SingletonStudentManager
+from patterns.decorator.student_decoratable import StudentDecoratable
 
-class Student:
+class Student(StudentDecoratable):
     """Student class.  Represents a student in a school."""
 
-    def __init__(self, name: str, department: Department):
+    def __init__(self, name: str, department: Department) -> None:
         """Initialize a course object based on received arguments (if valid).
 
         Args:
