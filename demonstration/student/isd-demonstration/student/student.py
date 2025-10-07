@@ -4,24 +4,24 @@ __credits__ = ""
 
 import random
 from department.department import Department
+from patterns.singleton.singleton_student_manager import SingletonStudentManager
 
 class Student:
     """Student class.  Represents a student in a school."""
 
-    def __init__(self, student_number: int, name: str, department: Department):
-        """
-        Initializes a course object based on received arguments (if valid).
-        args:
-            student_number (int): The student's unique id.
+    def __init__(self, name: str, department: Department):
+        """Initialize a course object based on received arguments (if valid).
+
+        Args:
+            student_number (int): Managed by the SingletonStudentManager.
             name (str): The name of the student.
             department (Department): The name of the department in which student is enrolled.
-        raises:
+
+        Raises:
             ValueError: if any of the arguments are invalid.
+
         """
-        if isinstance(student_number, int):
-            self.__student_number = student_number
-        else:
-            raise ValueError("Student Number must be a whole number.")
+        self.__student_number = SingletonStudentManager().get_next_student_number()
 
         if len(name.strip()) > 0:
             self.__name = name
