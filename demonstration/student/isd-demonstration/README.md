@@ -17,3 +17,8 @@ Module 1 - Object-Oriented Programming (OOP) and Unit Testing
 Module 2 - Encapsulation, Abstraction, Inheritance, and Polymorphism
 
 # Demonstration
+
+## Module 04
+
+- GUI with PySide6
+- Integrating PySide6 to track student GPA.
