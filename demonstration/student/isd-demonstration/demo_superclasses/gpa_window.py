@@ -7,20 +7,23 @@ from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont
 
 class GPAWindow(QDialog):
-    """
-    A Python class which allows users perform bank account 
-    transactions. This class is meant to work in conjunction 
-    with the BankAccount class such that deposit and withdraw 
-    functionality may be used.
-    """
-    def __init__(self):
-        """
-        Initializes the Details window by adding 
-        various widgets and setting properties. Widgets include: 
-        account_number_label, balance_label, transaction_amount_label, 
-        deposit_button, withdraw_button and exit_button.
-        """
+    """GPA Window GUI.
 
+    A Python class which allows users perform bank account
+    transactions. This class is meant to work in conjunction
+    with the BankAccount class such that deposit and withdraw
+    functionality may be used.
+
+    """
+
+    def __init__(self):
+        """Initialize the Details window.
+
+        Adds various widgets and setting properties. Widgets include:
+        account_number_label, balance_label, transaction_amount_label,
+        deposit_button, withdraw_button and exit_button.
+
+        """
         # List of GRADE values
         self.GRADES = ["A+", "A", "B+", "B", "C+", "C", "D", "F"]
         self.GRADE_VALUES = [4.5, 4, 3.5, 3, 2.5, 2, 1, 0]
@@ -30,7 +33,7 @@ class GPAWindow(QDialog):
         self.resize(200, 200)
 
         layout = QGridLayout(self)
-        layout.setAlignment(Qt.AlignTop)  
+        layout.setAlignment(Qt.AlignTop)
         layout.setHorizontalSpacing(10)
         layout.setVerticalSpacing(10)
 
@@ -75,10 +78,10 @@ class GPAWindow(QDialog):
 
         layout.addWidget(self.name_label, 0, 0)
         layout.addWidget(self.student_number_label, 1, 0)
-        
+
         layout.addWidget(self.grade_header_label, 2, 0)
         layout.addWidget(self.credit_hours_header_label, 2, 1)
-   
+
         layout.addWidget(self.grade_select_1, 3, 0)
         layout.addWidget(self.credit_edit_1, 3, 1)
 
@@ -91,10 +94,3 @@ class GPAWindow(QDialog):
         layout.addWidget(self.calculate_button, 6, 0)
         layout.addWidget(self.grade_point_average_label, 6, 1)
 
-       
-
-
-    
-
-
-    
