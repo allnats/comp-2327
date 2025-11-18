@@ -23,3 +23,6 @@ __pycache__/
 
 # xlsx lock file
 .*lock*.xlsx
+
+# Build
+build/
